@@ -1,0 +1,12 @@
+%%%% Starting test smoke-test
+Group begin: smoke-test
+Test begin:
+  test-name: "math works"
+  source-line: 47
+  source-form: (test-equal "math works" 2 (+ 1 1))
+Test end:
+  result-kind: pass
+  actual-value: 2
+  expected-value: 2
+Group end: smoke-test
+# of expected passes      1
