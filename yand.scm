@@ -21,16 +21,17 @@
 (define (update-nice-levels)
   (for-each
    (lambda (pid)
-     (let* ((name (get-command pid))
-	    (args (get-proc-args pid))
-	    (process (make-process name args)))
-       (for-each
-	(lambda (rule)
-	  (let ((nice-value (match-rule rule process)))
-	    (when (should-change-nice-value nice-value pid)
-	      (setpriority PRIO_PROCESS pid nice-value)
-	      (log-match rule process pid))))
-	my-rules)))
+     (false-if-exception
+      (let* ((name (get-command pid))
+	     (args (get-proc-args pid))
+	     (process (make-process name args)))
+	(for-each
+	 (lambda (rule)
+	   (let ((nice-value (match-rule rule process)))
+	     (when (should-change-nice-value nice-value pid)
+	       (setpriority PRIO_PROCESS pid nice-value)
+	       (log-match rule process pid))))
+	 my-rules))))
    (list-pids)))
 
 (while #t
