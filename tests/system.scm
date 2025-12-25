@@ -11,4 +11,7 @@
 (test-assert "list-pipds: retuns a list that only contains integers (PIDs)"
   (and-map string->number (list-pids)))
 
+(test-assert "get-command: returns correct process name"
+  (string= "guile" (get-command (getpid))))
+
 (test-end "system")
