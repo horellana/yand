@@ -1,7 +1,7 @@
-(define-module (nicer rules)
+(define-module (yand rules)
   :use-module (srfi srfi-9)
   :use-module (srfi srfi-1)
-  :export (make-rule match-rule make-process))
+  :export (make-rule match-rule make-process process-name rule-nice))
 
 (define-record-type <process>
   (make-process name args)
@@ -25,7 +25,7 @@
   (lset<= string=? rule-args process-args))
 
 (define (match-by-name rule process)
-  (if (eq? (rule-name rule)      
+  (if (string= (rule-name rule)      
 	   (process-name process))
       (rule-nice rule)
       #f))

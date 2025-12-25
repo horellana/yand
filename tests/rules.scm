@@ -1,7 +1,7 @@
 (add-to-load-path "modules")
 
 (use-modules (srfi srfi-64))
-(use-modules (nicer rules))
+(use-modules (yand rules))
 
 (test-begin "rules")
 
