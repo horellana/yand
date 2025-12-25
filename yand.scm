@@ -3,10 +3,9 @@
 (use-modules (yand core))
 (use-modules (yand rules))
 
-(define my-rules
-  (list (make-rule "guile" '() -1)))
+(define rules (load-config "./my-rules.scm"))
 
 (while #t
-  (update-nice-levels my-rules)
+  (update-nice-levels rules)
   (sleep 5))
 

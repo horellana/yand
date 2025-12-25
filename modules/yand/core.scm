@@ -2,7 +2,11 @@
   :use-module (ice-9 format)
   :use-module (yand rules)
   :use-module (yand system)
-  :export (update-nice-levels))
+  :export (load-config update-nice-levels))
+
+(define (load-config config-path)
+  (let ((code (call-with-input-file config-path read)))
+    (eval code (current-module))))
 
 (define (log-match rule process pid)
   (format #t "Match! PID: ~a | Command: ~a | Nice level: ~a~%"
