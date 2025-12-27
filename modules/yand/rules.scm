@@ -26,7 +26,7 @@
 
 (define (match-by-name rule process)
   (if (string= (rule-name rule)      
-	   (process-name process))
+	       (last (string-split (process-name process) #\/)))
       (rule-nice rule)
       #f))
 
@@ -35,5 +35,4 @@
 	   (match-cli-args (rule-args rule) (process-args process)))
       (rule-nice rule)
       #f))
-
 
