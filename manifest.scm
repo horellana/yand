@@ -1,3 +1,5 @@
 (specifications->manifest
   '("guile"
-    "guile-lib")) 
+    "guile-lib"
+    "guile-readline"
+    "guile-colorized")) 
