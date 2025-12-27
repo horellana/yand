@@ -1,5 +1,3 @@
-(add-to-load-path "modules")
-
 (use-modules (yand core))
 (use-modules (yand rules))
 

@@ -1,5 +1,3 @@
-(add-to-load-path "modules")
-
 (use-modules (srfi srfi-64))
 (use-modules (yand system))
 
