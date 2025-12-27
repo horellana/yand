@@ -39,7 +39,11 @@ Example:
 (define my-rules
   (list 
     ;; Set 'guile' processes to nice level -1
-    (make-rule "guile" '() -1)))
+    (make-rule "guile" '() -1)
+    
+    ;; Set 'python' processes running 'server.py' to nice level -5
+    ;; This matches if "server.py" appears in the argument list.
+    (make-rule "python" '("server.py") -5)))
 ```
 
 ## Development
